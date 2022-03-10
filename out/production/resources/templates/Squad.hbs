@@ -1,16 +1,16 @@
 {{#partial "content"}}
         {{#each heroes}}
-                <div class="card">
+                <div class="card border border-danger mb-2">
                     <div class="card-body">
-                        <h5 class="card-title text-danger">{{heroes.name}}</h5>
+                        <h5 class="card-title text-danger">{{name}}</h5>
                         <p class="card-text">Age: {{heroes.age}}</p>
                         <p class="card-text">Power: {{heroes.power}}</p>
                         <p class="card-text">Weakness: {{heroes.weakness}}</p>
                     </div>
-                    <div class="d-flex justify-content-between gap-3">
-                        <a href="/squads/{{id}}"><button class="btn btn-danger">Details</button></a>
-                        <a href="/squads/{{id}}/update"><button class="btn btn-danger gap-3">Update</button></a>
-                        <a href="/squads/{{id}}/delete"><button class="btn btn-danger">delete</button></a>
+                    <div class="d-flex justify-content-center gap-3 mb-2">
+                        <a href="/squads/{{heroes.id}}"><button class="btn btn-danger">Details</button></a>
+                        <a href="/squads/{{heroes.id}}/update"><button class="btn btn-danger gap-3">Update</button></a>
+                        <a href="/squads/{{heroes.id}}/delete"><button class="btn btn-danger">delete</button></a>
                     </div>
                 </div>
         {{/each}}
