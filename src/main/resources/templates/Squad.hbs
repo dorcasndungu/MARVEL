@@ -1,0 +1,20 @@
+{{#partial "content"}}
+        {{#each heroes}}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-danger">{{heroes.name}}</h5>
+                        <p class="card-text">Age: {{heroes.age}}</p>
+                        <p class="card-text">Power: {{heroes.power}}</p>
+                        <p class="card-text">Weakness: {{heroes.weakness}}</p>
+                    </div>
+                    <div class="d-flex justify-content-between gap-3">
+                        <a href="/squads/{{id}}"><button class="btn btn-danger">Details</button></a>
+                        <a href="/squads/{{id}}/update"><button class="btn btn-danger gap-3">Update</button></a>
+                        <a href="/squads/{{id}}/delete"><button class="btn btn-danger">delete</button></a>
+                    </div>
+                </div>
+        {{/each}}
+
+        <a class="text-decoration-none" href="/squad/delete"><button class="btn btn-danger d-block mx-auto">Delete all</button></a>
+{{/partial}}
+{{> layout.hbs}}
