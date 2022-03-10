@@ -1,0 +1,26 @@
+{{#partial "content"}}
+    <h1 class="text-center display-1 text-warning">Heroes:</h1>
+    {{#if heroes}}
+        {{#each heroes}}
+            <div class="card border border-info" >
+                <img class="card-img-top" src="public/images/judeus-samson-rAomxXulMNM-unsplash.jpg/100px180/" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Age: {{age}}</li>
+                <li class="list-group-item">Superpower: {{power}}</li>
+                <li class="list-group-item">Weakness: {{weakness}}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="/heroes/:heroId/delete" class="card-link"><button class="btn btn-danger">Delete</button></a>
+                    <a href="/hero/:heroId/update" class="card-link"><button class="btn btn-danger">Update</button></a>
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+        <h1>Sorry there are no heroes...<a href="/hero/new" class="text-info">create one</a></h1>
+    {{/if}}
+{{/partial}}
+{{> layout.hbs}}

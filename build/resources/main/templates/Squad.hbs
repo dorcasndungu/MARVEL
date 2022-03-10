@@ -1,0 +1,28 @@
+{{#partial "content"}}
+    {{#if squads}}
+
+        {{#each squads}}
+            <div class="card-group">
+                <div class="card">
+                    <img class="card-img-top" src="public/images/marcin-lukasik-uYpOYyJdhRE-unsplash.jpg/100px180/" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-text">Size: {{MaxSize}}</p>
+                        <p class="card-text">Members:<br> <span class="d-flex align-items-start">{{SquadMembers}}</span></p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a href="/squads/{{id}}"><button class="btn btn1">Details</button></a>
+                        <a href="/squads/{{id}}/update"><button class="btn btn2">Update</button></a>
+                        <a href="/squads/{{id}}/delete"><button class="btn btn-danger">delete</button></a>
+                    </div>
+                </div>
+
+        {{/each}}
+        </div>
+        <a class="text-decoration-none" href="/squad/delete"><button class="btn btn-danger d-block mx-auto">Delete all</button></a>
+
+    {{else}}
+        <p class="fs-3 fw-bolder">Nothing for now  <a class="text-decoration-none" href="/squad/new">Add a squad to continue</a></p>
+    {{/if}}
+{{/partial}}
+{{> layout.hbs}}

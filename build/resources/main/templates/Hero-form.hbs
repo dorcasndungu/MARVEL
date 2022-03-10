@@ -1,0 +1,94 @@
+{{#partial "content"}}
+
+        {{#if update}}
+
+            <div class="col-md-4 mt-5 text-success">
+                <form action="/Heroes/{{Hero.id}}" method="post">
+                    <h3 class="text-center text-success">Update your hero !</h3>
+                    <div class="form-group">
+                        <label for="name" class="fs-4 mb-2">Name:</label>
+                        <input type="text" class="form-control" id="name" name="newName" value="{{Hero.name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="age" class="fs-4 mb-2">Age:</label>
+                        <input type="number" class="form-control" id="age" name="newAge" value="{{Hero.age}}">
+                    </div>
+                    <div class="form-group">
+
+                        <label for="power" class="fs-4 mb-2">Power:</label>
+                        <input type="text" class="form-control" id="power" name="newPower" value="{{Hero.power}}">
+                    </div>
+                    <div class="form-group">
+
+                        <label for="weakness" class="fs-4 mb-2">Weakness:</label>
+                        <input type="text" class="form-control" id="weakness"  name="newWeakness" value="{{Hero.weakness}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Squad:</label>
+                        <select name="squadId" class="form-control" id="squadId">
+                            {{#each squad}}
+                                <option  value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <p class="fw-bold mt-4"> <a class="text-warning text-decoration-none" href="/squad/new">Create a new squad </a></p>
+                    </div>
+
+
+                    <button class="btn btn-warning d-block mx-auto" type="submit">Update Details</button>
+                </form>
+            </div>
+
+        {{else}}
+
+            <div class="col-md-4 mt-5 ">
+                {{#if squads}}
+                    <h3 class="text-center text-success">Create your hero today!</h3>
+                    <form action="/Heroes" method="post">
+
+                        <div class="form-group">
+                            <label for="name" class="fs-4 mb-2">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="age" class="fs-4 mb-2">Age:</label>
+                            <input type="number" class="form-control" id="age" name="age">
+                        </div>
+                        <div class="form-group">
+
+                            <label for="power" class="fs-4 mb-2">Power:</label>
+                            <input type="text" class="form-control" id="power" name="power">
+                        </div>
+                        <div class="form-group">
+
+                            <label for="weakness" class="fs-4 mb-2">Weakness:</label>
+                            <input type="text" class="form-control" id="weakness" name="weakness">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Squad:</label>
+                            <select name="squadId" class="form-control" id="squadId">
+                                {{#if SquadFull}}
+                                    {{#each squads}}
+                                        <option  value="{{id}}">{{name}}</option>
+                                    {{/each}}
+                                {{/if}}
+
+                            </select>
+                            <p class="fw-bold mt-4"> <a class="text-warning text-decoration-none" href="/squad/new">Create a new squad </a></p>
+                        </div>
+
+                        <button class="btn btn-warning d-block mx-auto" type="submit">Add Hero</button>
+                    </form>
+                {{else}}
+                    <p class="fs-3 fw-bolder">Nothing for now  <a class="text-decoration-none" href="/squad/new">Add a squad to continue</a></p>
+                {{/if}}
+            </div>
+
+        {{/if}}
+
+        <div class="col-md-4"></div>
+
+    </div>
+{{/partial}}
+{{> layout.hbs}}
