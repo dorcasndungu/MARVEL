@@ -62,13 +62,25 @@ class SquadTest {
 //        Squad one=testSquad();
 //        assertEquals(false, one.getSquadNotFull(testHero.getHeroSquadId()));
 //    }
+@Test
+void heroSquadIdEqualSquadId() {
+    Hero twHero=new Hero("catWoman",19,"invisibility","lazy",1);
+    Squad one=testSquad();
+    assertEquals(twHero.getHeroSquadId(), one.getId());
+}
 
     @Test
     void getSquadMembers() {
         Hero twHero=new Hero("catWoman",19,"invisibility","lazy",1);
-        Hero tHero=new Hero("catWoman",19,"invisibility","lazy",1);
+        Hero tHero=new Hero("catWoman",19,"invisibility","lazy",2);
         Squad one=testSquad();
-        assertEquals(2, one.getSquadMembers().size());
+        Squad on=new Squad(3,"mlk","protect");
+        ArrayList<Hero>testArray=new ArrayList<>();
+        ArrayList<Hero>testB=new ArrayList<>();
+        testArray.add(twHero);
+        testB.add(tHero);
+        assertEquals(testArray, one.getSquadMembers());
+        assertEquals(testB, on.getSquadMembers());
     }
 
     @Test
