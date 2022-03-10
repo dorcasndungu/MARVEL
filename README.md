@@ -10,9 +10,14 @@
 This is a web app where a user can create his/her favourite hero figures.This web is built using
 java spark and handlebars as the template engine.
 
-##Live link
+# Demo 
 
-[ marvelmoringa.herokuapp.com/](marvelmoringa.herokuapp.com/) 
+Here is a live link to the project 
+
+
+http://marvelmoringa.herokuapp.com/
+
+
 # Usage <span style='font-size:30px;'>🖋</span> 
 If you want to view the code or change some elements on the website, you are welcomed to clone the project
 
