@@ -52,10 +52,9 @@ public class Squad {
 //    }
     public ArrayList<Hero> getSquadMembers(){
         ArrayList<Hero>SquadMembers= new ArrayList<>();
-        for(int i=0;i<=Squad.getSquadIdList().size();i++){
-                if (Hero.getHeroSquadIdList().get(i) == this.getId()) {
-                    SquadMembers.add(Hero.getHeros().get(i));
-
+        for(int i:Hero.getHeroSquadIdList()){
+                if (i == this.getId()) {
+                    SquadMembers.add(Hero.getHeros().get(Hero.getHeroSquadIdList().indexOf(this.getId())));
             }
         }
         return SquadMembers;
