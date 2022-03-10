@@ -3,10 +3,8 @@ import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import static spark.Spark.*;
 
 import static spark.Spark.staticFileLocation;
@@ -77,25 +75,25 @@ public class App {
             return new ModelAndView(model,"success.hbs");
         },new HandlebarsTemplateEngine() );
 
-        //heroes::READ
-        get("/hero",(request, response) -> {
-            Map <String,Object> model = new HashMap<>();
-            request.session().attribute("squads",Squad.getSquads());
-            request.session().attribute("heroes",Hero.getHeros());
-            model.put("squads",request.session().attribute("squads"));
-            model.put("heroes",request.session().attribute("heroes"));
-            return new ModelAndView(model,"Hero.hbs");
-        },new HandlebarsTemplateEngine());
-
         //Heroes In a specific Squad ::READ
         get("/squads/:id",(request, response) -> {
             Map <String,Object> model = new HashMap<>();
             int squadId = Integer.parseInt( request.params("id"));
             request.session().attribute("squad",Squad.getById(squadId));
-            request.session().attribute("heroes",Squad.getById(squadId).getSquadMembers());
+            request.session().attribute("heroes", Objects.requireNonNull(Squad.getById(squadId)).getSquadMembers());
             model.put("squad",request.session().attribute("squad"));
             model.put("heroes",request.session().attribute("heroes"));
             return new ModelAndView(model,"Squad.hbs");
+        },new HandlebarsTemplateEngine());
+
+        //Hero details In A given Squad ::READ
+        get("/squads/:squadId/heroes/:heroId",(request, response) -> {
+            Map <String,Object> model = new HashMap<>();
+            int squadId = Integer.parseInt(request.params("squadId"));
+            int heroId = Integer.parseInt(request.params("heroId"));
+            model.put("hero",Hero.getById(heroId));
+            model.put("squad",Squad.getById(squadId));
+            return new ModelAndView(model,"Hero.hbs");
         },new HandlebarsTemplateEngine());
 
         //Get Form For Squad Updates
