@@ -10,7 +10,7 @@
 
                     <div class="card border border-danger mb-3">
                         <div class="card-body">
-                            <h5 class="card-title text-danger">{{name}}</h5>
+                            <h5 class="card-title text-danger text-center">{{name}}</h5>
                             <p class="card-text">Size: {{maxSize}}</p>
                             <p class="card-text">Cause: {{cause}}</p>
 
@@ -27,7 +27,7 @@
                 <a class="text-decoration-none" href="/squad/delete"><button class="btn btn-danger d-block mx-auto">Delete all</button></a>
 
             {{else}}
-                <p class="fs-3 display-5 fw-bolder text-center">No squads at the moment... <a class="text-decoration-none text-primary" href="/squad/new">create one to continue</a></p>
+                <h1 class="fs-3 display-1 fw-bolder text-center">No squads at the moment... <a class="text-decoration-none text-primary" href="/squad/new">create one to continue</a></h1>
             {{/if}}
 
 
