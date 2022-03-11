@@ -1,27 +1,25 @@
 {{#partial "content"}}
-    <h1 class="text-center display-6 text-danger">Hero:</h1>
-    {{#if heroes}}
-        {{#each heroes}}
+    <h1 class="text-center display-6 text-danger">{{hero.name}}</h1>
+
             <div class="card border border-danger" >
                 <div class="card-body">
-                    <h5 class="card-title text-center">{{name}}</h5>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-primary">Age: {{hero.age}}</li>
+                        <li class="list-group-item text-primary">Superpower: {{hero.power}}</li>
+                        <li class="list-group-item text-primary">Weakness: {{hero.weakness}}</li>
+                        <li class="list-group-item text-primary">Squad: {{squad.name}}</li>
+                    </ul>
+
                 </div>
 
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Age: {{age}}</li>
-                    <li class="list-group-item">Superpower: {{power}}</li>
-                    <li class="list-group-item">Weakness: {{weakness}}</li>
-                    <li class="list-group-item">Squad: {{squads.name}}</li>
-                </ul>
+
                 <div class="card-body">
-                    <a href="/heroes/{{id}}/delete" class="card-link"><button class="btn btn-danger">Delete</button></a>
-                    <a href="/hero/{{id}}/update" class="card-link"><button class="btn btn-danger">Update</button></a>
+                    <a href="/heroes/{{hero.id}}/delete" class="card-link"><button class="btn btn-danger">Delete</button></a>
+                    <a href="/hero/{{hero.id}}/update" class="card-link"><button class="btn btn-danger">Update</button></a>
                 </div>
             </div>
-        {{/each}}
-    {{else}}
-        <h1 class=" text-center ">There are no heroes...<small><a class="text-decoration-none text-danger" href="/hero/new">create one</a></small></h1>
-    {{/if}}
+
 
 
 {{/partial}}
