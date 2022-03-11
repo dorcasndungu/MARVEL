@@ -61,7 +61,7 @@ public class Hero {
         this.heroSquadId = heroSquadId;
     }
 
-    public int getHeroId() {
+    public int getId() {
         return id;
     }
 
