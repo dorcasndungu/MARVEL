@@ -91,7 +91,7 @@ public class App {
             Map <String,Object> model = new HashMap<>();
             int squadId = Integer.parseInt(request.params("squadId"));
             int heroId = Integer.parseInt(request.params("heroId"));
-            model.put("hero",Hero.getById(heroId));
+            model.put("hero",Hero.getHeros().get(heroId));
             model.put("squad",Squad.getById(squadId));
             return new ModelAndView(model,"Hero.hbs");
         },new HandlebarsTemplateEngine());
@@ -114,7 +114,7 @@ public class App {
             int newSize = Integer.parseInt(request.queryParams("newSize"));
             String newCause = request.queryParams("newCause");
             Squad editSquad=Squad.getById(idOfSquad);
-            editSquad.updateSquad(newSize,newName,newCause);
+            Objects.requireNonNull(editSquad).updateSquad(newSize,newName,newCause);
             return new ModelAndView(model,"success.hbs");
         },new HandlebarsTemplateEngine() );
 
