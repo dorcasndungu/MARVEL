@@ -23,8 +23,8 @@ class HeroTest {
     void addHero_heroInstantiatedWithId() {
         Hero testHero=testHero();
         Hero.addHero(testHero);
-        int heroId=testHero.getHeroId();
-        assertEquals(heroId,testHero.getHeroId());
+        int heroId=testHero.getId();
+        assertEquals(heroId,testHero.getId());
     }
     @Test
     void heroInstantiatedWithSquadId() {
