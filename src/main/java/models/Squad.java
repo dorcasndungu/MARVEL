@@ -54,7 +54,9 @@ public class Squad {
         ArrayList<Hero>SquadMembers= new ArrayList<>();
         for(int i:Hero.getHeroSquadIdList()){
                 if (i == this.getId()) {
-                    SquadMembers.add(Hero.getHeros().get(Hero.getHeroSquadIdList().indexOf(this.getId())));
+                    for (int p=0;p<Squad.getSquadIdList().size();p++) {
+                        SquadMembers.add(Hero.getHeros().get(Hero.getHeroSquadIdList().indexOf(this.getId())+p));
+                    }
             }
         }
         return SquadMembers;
